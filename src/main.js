@@ -1,18 +1,6 @@
-import { getNextBoard, renderBoard } from './src/board.js';
-import { getFood } from './src/food.js';
-import { Snake } from './src/snake.js';
-
-/**
- * @param {string} eventKey
- * @param {Direction} currentDirection
- */
-function getNewDirection(eventKey, currentDirection) {
-	if (eventKey === 'ArrowRight' && currentDirection !== 'left') return 'right';
-	if (eventKey === 'ArrowLeft' && currentDirection !== 'right') return 'left';
-	if (eventKey === 'ArrowUp' && currentDirection !== 'down') return 'up';
-	if (eventKey === 'ArrowDown' && currentDirection !== 'up') return 'down';
-	return currentDirection;
-}
+import { getNextBoard, renderBoard } from './board.js';
+import { getFood } from './food.js';
+import { Snake } from './snake.js';
 
 /** @param {number} speed */
 function getTickTimeout(speed) {
@@ -37,6 +25,18 @@ function nextTick(bounds, food, snake, direction, timeout = 500) {
 
 		nextTick(bounds, food, snake, direction, getTickTimeout(snake.body.length));
 	}, timeout);
+}
+
+/**
+ * @param {string} eventKey
+ * @param {Direction} currentDirection
+ */
+function getNewDirection(eventKey, currentDirection) {
+	if (eventKey === 'ArrowRight' && currentDirection !== 'left') return 'right';
+	if (eventKey === 'ArrowLeft' && currentDirection !== 'right') return 'left';
+	if (eventKey === 'ArrowUp' && currentDirection !== 'down') return 'up';
+	if (eventKey === 'ArrowDown' && currentDirection !== 'up') return 'down';
+	return currentDirection;
 }
 
 function main() {
