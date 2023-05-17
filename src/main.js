@@ -4,7 +4,7 @@ import { Snake } from './snake.js';
 
 /** @param {number} speed */
 function getTickTimeout(speed) {
-	return Math.max(510 - speed * 10, 10);
+	return Math.max(530 - speed * 10, 10);
 }
 
 /**

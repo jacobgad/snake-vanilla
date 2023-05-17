@@ -2,7 +2,11 @@ export class Snake {
 	/** @param {Coordinates} bounds */
 	constructor(bounds) {
 		this.bounds = bounds;
-		this.body = [{ x: 7, y: 12 }];
+		this.body = [
+			{ x: 7, y: 12 },
+			{ x: 6, y: 12 },
+			{ x: 5, y: 12 },
+		];
 	}
 
 	/**
@@ -16,7 +20,7 @@ export class Snake {
 		if (!isWithinBounds(newHead, this.bounds)) return { valid: false, eaten: false };
 		if (isSelfCollision(newHead, this.body)) return { valid: false, eaten: false };
 		this.body.unshift(newHead);
-		
+
 		if (head.x === food.x && head.y === food.y) return { valid: true, eaten: true };
 		this.body.pop();
 		return { valid: true, eaten: false };
