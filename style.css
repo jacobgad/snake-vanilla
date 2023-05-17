@@ -1,12 +1,32 @@
+:root {
+	--slate-200: #e2e8f0;
+	--slate-700: #334155;
+	--green-500: #22c55e;
+	--blue-500: #3b82f6;
+}
+
 body {
-	padding: 2rem;
+	max-width: 768px;
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 768px;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	background-color: var(--slate-700);
+	font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 #board-container {
-	border: 1px solid gray;
+	border: 1px solid var(--slate-700);
+	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.title-block {
+	display: flex;
+	justify-content: space-between;
+	align-items: end;
+	color: var(--slate-200);
 }
 
 .row {
@@ -16,20 +36,20 @@ body {
 .tile {
 	width: 100%;
 	aspect-ratio: 1 / 1;
-	border: 1px solid gray;
+	border: 1px solid var(--slate-700);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
 .empty {
-	background-color: lightgray;
+	background-color: var(--slate-200);
 }
 
 .food {
-	background-color: green;
+	background-color: var(--green-500);
 }
 
 .snake {
-	background-color: cornflowerblue;
+	background-color: var(--blue-500);
 }

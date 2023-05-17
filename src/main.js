@@ -7,6 +7,12 @@ function getTickTimeout(speed) {
 	return Math.max(530 - speed * 10, 10);
 }
 
+function updateScore(score) {
+	const scoreSpan = document.querySelector('#score');
+	if (!scoreSpan) throw new Error('Score span not found on page');
+	scoreSpan.textContent = score;
+}
+
 /**
  * @param {Coordinates} bounds
  * @param {Coordinates} food
@@ -21,6 +27,7 @@ function nextTick(bounds, food, snake, direction, timeout = 500) {
 		if (!valid) return alert('You lost');
 
 		const board = getNextBoard(bounds, snake, food);
+		updateScore(snake.body.length - 3);
 		renderBoard(board);
 
 		nextTick(bounds, food, snake, direction, getTickTimeout(snake.body.length));
